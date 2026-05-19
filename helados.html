@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sweet Bar - Nuestro Servicio de Helados </title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;500&family=Satisfy&display=swap" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --crema: #fff7f3;
+      --rosa-oscuro: #ed8da3;
+      --texto: #4e3535;
+    }
+    
+    body {
+      background-color: var(--crema);
+      color: var(--texto);
+      font-family: 'Cormorant Garamond', serif;
+      margin: 0;
+      padding: 0;}
+     
+    
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    h1 { font-family: 'Satisfy', cursive; color: var(--rosa-oscuro); font-size: 4rem; margin-bottom: 1rem; }
+
+    
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 3rem 0;
+    }
+
+    .galeria-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 15px;
+      background: #eee; /* Aquí aparecerá el espacio gris hasta que pongas tus fotos */
+    }
+
+    /* Espacio para texto abajo */
+    .info-extra {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      border: 1px solid var(--rosa-oscuro);
+      border-radius: 50px;
+      color: var(--rosa-oscuro);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Sweet Bar</h1>
+    <h2>Servicio de Helado</h2>
+    <div>
+      <div class="galeria-grid">
+  <img src="helad1.jpeg" class="galeria-img" alt="Helado 1">
+  <img src="helad2.jpeg" class="galeria-img" alt="Helado 2">
+  <img src="helad3.jpeg" class="galeria-img" alt="Helado 3">
+  <img src="helad4.jpeg" class="galeria-img" alt="Helado 4">
+  <img src="helad5.jpeg" class="galeria-img" alt="Helado 5">
+  <img src="helad6.jpeg" class="galeria-img" alt="Helado 6">
+</div>
+    </div>
+
+    <div class="info-extra">
+      <h2>¿Por qué elegir nuestra barra de Helados Soft?</h2>
+      <p>
+Libertad de elección: Tus invitados eligen entre cucurucho crujiente o vasito.</p>
+<p>Personalización total: Tenemos una amplia variedad de toppings y salsas premium para que cada helado sea único.</p>
+
+<p>Calidad garantizada: Utilizamos maquinaria de alta gama para asegurar una textura suave y cremosa que encanta a grandes y chicos.</p>
+
+<p>Presentación impecable: Nuestra estación decorada no solo se ve increíble, sino que crea el ambiente dulce perfecto para tu celebración.</p>
+
+<p>¡Hacemos que tu evento sea inolvidable!</p>
+    </div>
+
+    <a href="sb.html" class="btn-volver">← Volver al inicio</a>
+  </div>
+
+</body>
+</html>
