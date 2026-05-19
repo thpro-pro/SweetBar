@@ -477,8 +477,7 @@
 
     footer p { opacity: 0.6; }
 
-  
-@media (max-width: 900px) {
+  @media (max-width: 900px) {
   header {
     padding: 1rem 1.5rem;
     flex-direction: column;
@@ -491,6 +490,14 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  @media (max-width: 600px) {
+  header { padding: 1rem 1rem; }
+  .hero { padding: 2rem 1rem; min-height: auto; }
+  #menu { padding: 3rem 1rem; }
+  #nosotros { padding: 3rem 1rem; }
+  #eventos { padding: 3rem 1rem; }
+  footer { padding: 1.5rem 1rem; }
+}
 
   nav a {
     font-size: 0.95rem;
