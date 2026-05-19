@@ -14,7 +14,20 @@
     }
     
     body {
-      background-color: var(--crema);
+
+  background-color: #fff7f3; 
+
+  /* Esto crea el degradado suave y las formas orgánicas sutiles */
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(206, 125, 114, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(255, 228, 225, 0.4) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.6) 0px, transparent 50%);
+  
+  /* Asegura que el fondo cubra toda la página y no se repita */
+  background-attachment: fixed;
+  background-size: cover;
+}
+      {background-color: var(--crema);
       color: var(--texto);
       font-family: 'Cormorant Garamond', serif;
       margin: 0;
@@ -51,7 +64,7 @@
     .info-extra {
       margin-top: 4rem;
       padding: 2rem;
-      background: white;
+      background: rgb(253, 236, 236);
       border-radius: 20px;
       text-align: left;
       line-height: 1.8;
