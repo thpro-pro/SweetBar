@@ -1,0 +1,52 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf2f2;
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(255, 182, 193, 0.3) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(255, 228, 225, 0.4) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* 2. Asegurar que las imágenes no se desborden */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Estilo del Menú */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #e57373;
+    font-weight: bold;
+}
+
+/* 4. Estilo de Botones */
+.boton-menu {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f06292;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* 5. Ajustes para Celulares (Pantallas pequeñas) */
+@media (max-width: 600px) {
+    h1 { font-size: 24px !important; }
+    nav { flex-direction: column; align-items: center; }
+    nav a { margin: 5px 0; }
+}
