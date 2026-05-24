@@ -3,120 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sweet Bar - Nuestro Servicio de Creps</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;500&family=Satisfy&display=swap" rel="stylesheet"/>
-  
+  <title>Sweet Bar – Servicio de Creps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Satisfy&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --crema: #fdf9e9;
-      --rosa-oscuro: #ed8da3;
-      --texto: #4e3535;
+      --acento:       #e8c97a;
+      --acento-claro: #fdf6e3;
+      --acento-osc:   #b8860b;
+      --crema:        #fdf9ee;
+      --texto:        #4a3520;
     }
-    
-    body
-    {
-
-  background-color: #fdf9e9; 
-
-  /* Esto crea el degradado suave y las formas orgánicas sutiles */
-  background-image: 
-    radial-gradient(at 10% 20%, rgba(225, 196, 100, 0.3) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(249, 236, 207, 0.4) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.6) 0px, transparent 50%);
-  
-  /* Asegura que el fondo cubra toda la página y no se repita */
-  background-attachment: fixed;
-  background-size: cover;
-}
-    {
+    body {
       background-color: var(--crema);
+      background-image:
+        radial-gradient(ellipse at 5% 10%,  rgba(232,201,122,.4) 0, transparent 55%),
+        radial-gradient(ellipse at 95% 15%, rgba(249,215,150,.3) 0, transparent 45%),
+        radial-gradient(ellipse at 50% 55%, rgba(255,255,255,.7)  0, transparent 60%),
+        radial-gradient(ellipse at 10% 90%, rgba(232,201,122,.2)  0, transparent 50%),
+        radial-gradient(ellipse at 90% 85%, rgba(249,215,150,.2)  0, transparent 45%);
+      background-attachment: fixed;
       color: var(--texto);
       font-family: 'Cormorant Garamond', serif;
-      margin: 0;
-      padding: 0;}
-     
-    
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      text-align: center;
-
+      overflow-x: hidden;
     }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: .5;
+    }
+    .hero { text-align: center; padding: 5rem 1.5rem 3rem; animation: fadeUp .9s ease both; }
+    .hero-tag {
+      display: inline-block; font-family: 'Lato', sans-serif; font-size: .7rem;
+      font-weight: 300; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--acento-osc); background: rgba(232,201,122,.15);
+      border: 1px solid rgba(232,201,122,.5); border-radius: 50px;
+      padding: .35rem 1.2rem; margin-bottom: 1.8rem;
+    }
+    .hero h1 {
+      font-family: 'Satisfy', cursive; font-size: clamp(3rem, 10vw, 5.5rem);
+      color: var(--acento-osc); line-height: 1; margin-bottom: .5rem;
+      text-shadow: 2px 4px 18px rgba(184,134,11,.2);
+    }
+    .hero h2 { font-weight: 300; font-style: italic; font-size: clamp(1.3rem, 4vw, 2rem); color: var(--texto); opacity: .7; letter-spacing: .12em; }
+    .divider { display: flex; align-items: center; justify-content: center; gap: .8rem; margin: 2rem auto; max-width: 260px; }
+    .divider span { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--acento)); }
+    .divider span:last-child { background: linear-gradient(to left, transparent, var(--acento)); }
+    .divider em { font-size: 1.1rem; color: var(--acento-osc); }
 
-    h1 { font-family: 'Satisfy', cursive; color: var(--rosa-oscuro); font-size: 4rem; margin-bottom: 1rem; }
+    .galeria-section { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 4rem; animation: fadeUp .9s .15s ease both; }
 
-    
+    /* ── GALERÍA CORREGIDA ── */
     .galeria-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin: 3rem 0;
+      grid-auto-rows: 260px;
+      gap: 14px;
     }
-
-    .galeria-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: 15px;
-      background: #eee;
+    .galeria-item {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 22px rgba(184,134,11,.13);
+      transition: transform .35s ease, box-shadow .35s ease;
     }
+    .galeria-item:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 36px rgba(184,134,11,.22); }
+    .galeria-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-    
-    .info-extra {
-      margin-top: 4rem;
-      padding: 2rem;
-      background: rgb(253, 250, 247);
-      border-radius: 20px;
-      line-height: 1.8;
-      text-align: left;
+    .info-section { max-width: 1000px; margin: 0 auto 1rem; padding: 0 1.5rem; animation: fadeUp .9s .25s ease both; }
+    .info-header { text-align: center; margin-bottom: 2.5rem; }
+    .info-header h2 { font-family: 'Satisfy', cursive; font-size: clamp(1.8rem, 6vw, 2.8rem); color: var(--acento-osc); margin-bottom: .4rem; }
+    .info-header p { font-style: italic; font-size: 1.1rem; opacity: .65; font-weight: 300; }
+    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card {
+      background: rgba(255,255,255,.75); backdrop-filter: blur(10px);
+      border: 1px solid rgba(232,201,122,.4); border-radius: 22px;
+      padding: 2rem 1.8rem; transition: transform .3s ease, box-shadow .3s ease;
+      position: relative; overflow: hidden;
     }
-
+    .card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(232,201,122,.2), transparent 70%); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(184,134,11,.15); }
+    .card-icon { font-size: 2rem; margin-bottom: .8rem; display: block; }
+    .card h3 { font-size: 1.25rem; font-weight: 500; color: var(--acento-osc); margin-bottom: .5rem; letter-spacing: .03em; }
+    .card p { font-size: 1.05rem; font-weight: 300; line-height: 1.7; opacity: .8; }
+    .btn-wrap { text-align: center; padding: 3rem 1.5rem 5rem; animation: fadeUp .9s .35s ease both; }
     .btn-volver {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-      width:fit-content;
-      padding: 0.8rem 2rem;
-      border: 1px solid var(--rosa-oscuro);
-      border-radius: 50px;
-      color: var(--rosa-oscuro);
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 2.4rem; border: 1.5px solid var(--acento-osc); border-radius: 50px;
+      color: var(--acento-osc); text-decoration: none; font-family: 'Lato', sans-serif;
+      font-size: .8rem; font-weight: 300; letter-spacing: .2em; text-transform: uppercase;
+      transition: background .3s, color .3s, transform .25s;
+    }
+    .btn-volver:hover { background: var(--acento-osc); color: #fff; transform: translateY(-2px); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .galeria-grid { gap: 10px; grid-auto-rows: 160px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    <h1>Sweet Bar</h1>
-    <h2>Servicio de Creps</h2>
-    <div>
-      <div class="galeria-grid">
-  <img src="Creps1.jpeg" class="galeria-img" alt="Helado 1">
-  <img src="Creps2.jpeg" class="galeria-img" alt="Helado 2">
-  <img src="Creps3.jpeg" class="galeria-img" alt="Helado 3">
-  <img src="Creps4.jpeg" class="galeria-img" alt="Helado 4">
-  <img src="Creps5.jpeg" class="galeria-img" alt="Helado 5">
-  <img src="Creps6.jpeg" class="galeria-img" alt="Helado 6">
-</div>
+  <div class="hero">
+    <div class="hero-tag">Sweet Bar ✦ Servicios</div>
+    <h1>Creps</h1>
+    <h2>Sabor artesanal en palito</h2>
+    <div class="divider"><span></span><em>✦</em><span></span></div>
+  </div>
+  <section class="galeria-section">
+    <div class="galeria-grid">
+      <div class="galeria-item"><img src="Creps1.jpeg" class="galeria-img" alt="Creps 1"></div>
+      <div class="galeria-item"><img src="Creps2.jpeg" class="galeria-img" alt="Creps 2"></div>
+      <div class="galeria-item"><img src="Creps3.jpeg" class="galeria-img" alt="Creps 3"></div>
+      <div class="galeria-item"><img src="Creps4.jpeg" class="galeria-img" alt="Creps 4"></div>
+      <div class="galeria-item"><img src="Creps5.jpeg" class="galeria-img" alt="Creps 5"></div>
+      <div class="galeria-item"><img src="Creps6.jpeg" class="galeria-img" alt="Creps 6"></div>
     </div>
-<div class="info-extra">
-    <h2>¿Por qué nuestros Creps conquistan a todos los invitados?</h2>
-    
-    <p><strong>Sabor artesanal:</strong> Elaborados con una receta especial, logramos ese punto perfecto: doraditos por fuera y suaves por dentro.</p>
-    
-    <p><strong>Experiencia gourmet:</strong> Servidos en palito para una comodidad total, son la opción sofisticada y deliciosa que eleva el nivel de tu mesa dulce.</p>
-    
-    <p><strong>Rellenos a tu gusto:</strong> Ofrecemos una variedad de rellenos premium, desde el clásico dulce de leche hasta opciones con chocolate y frutas, personalizables para cada invitado.</p>
-    
-    <p><strong>Preparación en vivo:</strong> La magia ocurre frente a los ojos de tus invitados. El aroma irresistible mientras se cocinan hace que todos quieran probarlos.</p>
-    
-    <p><strong>Versatilidad total:</strong> Son el equilibrio perfecto entre un postre elegante y un snack divertido, ideales para cualquier tipo de celebración o evento corporativo.</p>
-</div>
-   
+  </section>
+  <section class="info-section">
+    <div class="info-header">
+      <h2>¿Por qué nos eligen?</h2>
+      <p>El postre gourmet que conquista a todos los invitados</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card"><span class="card-icon">⟡ —</span><h3>Sabor artesanal</h3><p>Elaborados con una receta especial: doraditos por fuera y suaves por dentro, en su punto perfecto.</p></div>
+      <div class="card"><span class="card-icon">⟡ —</span><h3>Rellenos a tu gusto</h3><p>Desde el clásico dulce de leche hasta chocolate y frutas, personalizables para cada invitado.</p></div>
+      <div class="card"><span class="card-icon">⟡ —</span><h3>Preparación en vivo</h3><p>La magia ocurre frente a los ojos de tus invitados. El aroma irresistible hace que todos quieran probarlos.</p></div>
+      <div class="card"><span class="card-icon">⟡ —</span><h3>Experiencia gourmet</h3><p>Servidos en palito para comodidad total, son la opción sofisticada que eleva el nivel de tu mesa dulce.</p></div>
+      <div class="card" style="grid-column: 1 / -1;"><span class="card-icon">⟡ —</span><h3>Versatilidad total</h3><p>El equilibrio perfecto entre un postre elegante y un snack divertido, ideales para cualquier celebración.</p></div>
+    </div>
+  </section>
+  <div class="btn-wrap">
     <a href="index.html" class="btn-volver">← Volver al inicio</a>
   </div>
-
 </body>
 </html>
